@@ -1,0 +1,8 @@
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  gap: 43px;
+}
+.card_container > .card:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,34 @@
+.banner_wrapper {
+  padding: 110px 0 20px 0;
+  width: auto;
+  min-height: 600px;
+  background-color: #a1e2eb;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+
+  font-style: normal;
+}
+.sail_banner {
+  margin: 0 auto;
+  width: 1345px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sale_heading {
+  font-weight: 700;
+  font-size: 80px;
+  margin-bottom: 3px;
+}
+
+.season_heading {
+  font-weight: 700;
+  font-size: 63px;
+  margin-bottom: 60px;
+}
+
+.baner_image img {
+  width: 600px;
+  height: 500px;
+}

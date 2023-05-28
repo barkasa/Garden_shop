@@ -1,0 +1,12 @@
+.categories_list_wrapper {
+  margin: 0 auto;
+  max-width: 1345px;
+  padding: 40px 0 89px 0;
+  background: #ffffff;
+}
+
+.categories_list_title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 41px;
+}

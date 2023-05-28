@@ -1,0 +1,70 @@
+.get_sail_banner {
+  padding: 44px 255px 45px 91px;
+  height: 476px;
+  background: linear-gradient(262.69deg, #339933 -0.43%, #006300 104.36%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oder_sail {
+  font-weight: 700;
+  font-size: 90px;
+  color: #ffffff;
+}
+
+.oder_sail_h4 {
+  font-weight: 700;
+  font-size: 50px;
+  color: #ffffff;
+  margin-bottom: 46px;
+}
+
+.tel_input {
+  padding-left: 50px;
+  margin-bottom: 30px;
+  width: 473px;
+  height: 75.44px;
+  border-radius: 25.1468px;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  color: #6c6c6c;
+}
+
+/* // */
+
+.get_discount_btn {
+  width: 473px;
+  height: 75.44px;
+  background: none;
+  border: 2.39px solid #ffffff;
+  border: 2.39494px solid #ffffff;
+  border-radius: 25.1468px;
+
+  font-size: 28.7392px;
+  color: #ffffff;
+}
+.get_discount_btn:hover {
+  box-shadow: inset 0px 0px 10px 5px #ffffff;
+
+  border: 2px solid #ffffff;
+
+  color: #ffffff;
+}
+.get_discount_btn[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.get_discount_btn_error {
+  box-shadow: inset 0px 0px 10px 5px #b62f2f;
+  border: 2px solid #b62f2f;
+  color: #b62f2f;
+}
+
+.message_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+}

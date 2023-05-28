@@ -1,0 +1,95 @@
+/* Общие стили для кнопок */
+.button {
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+/* стили для кнопки Small */
+
+.button_small {
+  width: 125px;
+  height: 49px;
+  font-size: 16px;
+  border-radius: 5px;
+  background: #339933;
+  color: #ffffff;
+}
+
+.button_small:hover {
+  box-shadow: inset 0px 0px 8px 10px #2b812b;
+  background: #2b812b;
+  border: 2px solid #287728;
+}
+
+/* стили для кнопки sale_baner */
+
+.sale_button {
+  width: 152px;
+  height: 82px;
+  background: #ffffff;
+  border-radius: 13px;
+  padding: 25px 50px;
+  font-size: 25px;
+}
+.sale_button:hover {
+  box-shadow: inset 0px 0px 10px 12px #c9c9c9;
+  background: #c9c9c9;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+/* стили для кнопки allCategories_button */
+
+.allCategories_button {
+  width: 120px;
+  height: 31px;
+  border: 1px solid #8b8b8b;
+  font-size: 12px;
+  color: #8b8b8b;
+}
+
+.allCategories_button:hover {
+  background-color: #c7d2d8;
+  border: 2px solid #b6c0c5;
+  color: #ffffff;
+}
+
+/* .button-large {
+  width: 341px;
+  height: 86px;
+  font-size: 28px;
+  border-radius: 10px;
+  
+} */
+
+/* Стили для большой кнопки */
+
+/* Стили для Add to card кнопки */
+
+.add_to_cart_button {
+  width: 279px;
+  height: 72px;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+
+  transform: translate(-50%);
+
+  background-color: #f1fff1;
+  border: 2px solid #339933;
+  color: #339933;
+  border-radius: 21px;
+
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.add_to_cart_button:hover {
+  box-shadow: inset 0px 0px 10px 5px #287728;
+  border: 2px solid #287728;
+  color: #287728;
+}

@@ -1,0 +1,31 @@
+.sail_wrapper,
+.categories_wrapper {
+  margin: 0 auto;
+  max-width: 1345px;
+  background: #ffffff;
+}
+.sail_wrapper {
+  min-height: 532px;
+  padding: 48px 0 45px 0;
+}
+.categories_wrapper {
+  min-height: 617px;
+  padding: 40px 0 89px 0;
+}
+.sail_title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 21px;
+}
+.categories_wrapper h2 {
+  margin-right: 96px;
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.wrapper_title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
