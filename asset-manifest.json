@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.46e75996.css",
+    "main.js": "/static/js/main.9a55b4b8.js",
+    "static/media/notFoundPage.png": "/static/media/notFoundPage.b767db95499b6ac5aa96.png",
+    "static/media/banerImage.png": "/static/media/banerImage.08956bea9bbad00b25e6.png",
+    "static/media/banerImage_3.png": "/static/media/banerImage_3.b89629beb2d9974b023d.png",
+    "static/media/banerImage_2.png": "/static/media/banerImage_2.e0427a149cc18b238893.png",
+    "static/media/dwarf.png": "/static/media/dwarf.44ddfa3ba42c2be627b5.png",
+    "index.html": "/index.html",
+    "main.46e75996.css.map": "/static/css/main.46e75996.css.map",
+    "main.9a55b4b8.js.map": "/static/js/main.9a55b4b8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46e75996.css",
+    "static/js/main.9a55b4b8.js"
+  ]
+}
