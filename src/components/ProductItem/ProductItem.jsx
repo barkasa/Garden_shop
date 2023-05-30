@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import s from "./ProductItem.module.css";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
-export default function ProductItem({ title, price, discont_price, image }) {
+export default function ProductItem({
+  title,
+  price,
+  discont_price,
+  image,
+  description,
+  id,
+}) {
   const imageUrl = "http://localhost:3333/" + image;
   const [isHovered, setIsHovered] = useState(false);
 
@@ -21,7 +29,11 @@ export default function ProductItem({ title, price, discont_price, image }) {
       onMouseLeave={handleMouseLeave}
     >
       <div className={s.card}>
-        <img src={imageUrl} alt="foto" className={s.product_image} />
+        {/* // */}
+        <Link to={`/products/${id}`} className={s.product_link}>
+          {/* // */}
+          <img src={imageUrl} alt="foto" className={s.product_image} />
+        </Link>
         {isHovered && (
           <Button className="add_to_cart_btn" label="Add to cart" />
         )}
@@ -43,6 +55,9 @@ export default function ProductItem({ title, price, discont_price, image }) {
         </div>
 
         <h2 className={s.product_title}>{title}</h2>
+        {/* // */}
+
+        {/* // */}
       </div>
     </div>
   );
