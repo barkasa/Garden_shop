@@ -78,7 +78,7 @@
 
   transform: translate(-50%);
 
-  background-color: #f1fff1;
+  background-color: #f1fff180;
   border: 2px solid #339933;
   color: #339933;
   border-radius: 21px;
@@ -89,6 +89,7 @@
 }
 
 .add_to_cart_button:hover {
+  background-color: #f1fff1d3;
   box-shadow: inset 0px 0px 10px 5px #287728;
   border: 2px solid #287728;
   color: #287728;

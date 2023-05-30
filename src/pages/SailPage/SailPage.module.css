@@ -10,3 +10,15 @@
   font-size: 40px;
   margin-bottom: 91px;
 }
+
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(300px, 1fr));
+  gap: 43px;
+}
+
+.sail_page_title {
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 81px;
+}

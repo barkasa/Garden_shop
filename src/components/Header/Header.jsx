@@ -16,7 +16,6 @@ export default function Header() {
           </Link>
           <Link to="/categoriesList">
             <Button className="small_btn" label="Catalog" />
-            {/* Маленькая кнопка в Header */}
           </Link>
         </div>
 

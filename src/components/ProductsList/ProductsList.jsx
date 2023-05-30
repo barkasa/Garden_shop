@@ -22,7 +22,7 @@ export default function ProductsList({ count }) {
       .sort(() => Math.random() - 0.5)
       .slice(0, count);
   } else {
-    targetProducts = products.filter((product) => product.discont_price);
+    targetProducts = products;
   }
 
   return (

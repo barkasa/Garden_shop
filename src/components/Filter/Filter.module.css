@@ -1,0 +1,44 @@
+.filter_wrapper {
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 34px;
+}
+.filter_price,
+.filter_discountChek,
+.filter_Sort_price {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+}
+.filter_discountChek {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.input_toFrom {
+  width: 103px;
+  height: 42px;
+  margin-left: 15px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+.input_toFrom:last-child {
+  margin-right: 40px;
+}
+.input_checkBox {
+  margin-left: 39px;
+  margin-right: 91px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}
+.input_select {
+  margin-left: 42px;
+  width: 219px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 7px;
+}

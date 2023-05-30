@@ -1,6 +1,7 @@
 {
   "name": "garden_shop",
   "version": "0.1.0",
+  "homepage": "https://barkasa.github.io/Garden_shop/",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",

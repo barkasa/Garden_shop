@@ -1,17 +1,12 @@
 import { ggetCategoriesAction } from "../store/reducers/categoriesReducer";
 import { getProductsAction } from "../store/reducers/productsReducer";
-import { getCategoryAction } from "../store/reducers/categoryReducer";
-// import {
-//   fetchCategoryRequest,
-//   fetchCategorySuccess,
-//   fetchCategoryError,
-// } from "../actions/action";
+// import { getCategoryAction } from "../store/reducers/categoryReducer";
 
 const base_url = "http://localhost:3333";
 
 const products_url = base_url + "/products/all";
 const categories_url = base_url + "/categories/all";
-const category_url = base_url + "/categories/";
+// const category_url = base_url + "/categories/";
 
 export const fetchProductList = () => {
   return function (dispatch) {
@@ -41,11 +36,31 @@ export function discountRequest(discount) {
   }).then((response) => response.json());
 }
 
-export const fetchCategory = () => {
+export const fetchProductsByCategory = (categoryId) => {
+  const url = `${base_url}/categories/${categoryId}`;
+
   return function (dispatch) {
-    fetch(category_url)
+    fetch(url)
       .then((res) => res.json())
-      .then((data) => dispatch(getCategoryAction(data)))
+      .then((data) => dispatch(getProductsAction(data.data)))
       .catch((error) => console.log(error));
+  };
+};
+
+export const fetchProduct = (productId) => {
+  const url = `${base_url}/products/${productId}`;
+
+  return function (dispatch) {
+    dispatch({ type: "GET_PRODUCT_REQUEST" });
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({ type: "GET_PRODUCT_SUCCESS", payload: data });
+      })
+      .catch((error) => {
+        dispatch({ type: "GET_PRODUCT_ERROR", payload: error });
+        console.log(error);
+      });
   };
 };

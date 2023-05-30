@@ -1,7 +1,6 @@
-.products_wrapper {
+.category_wrapper {
   margin: 0 auto;
   width: 1345px;
-  /* min-height: 532px; */
   padding: 0 0 45px 0;
   background: #ffffff;
 }
@@ -12,7 +11,7 @@
   gap: 43px;
 }
 
-.products_list_title {
+.categories_list_title {
   font-weight: 700;
   font-size: 40px;
   margin-bottom: 81px;

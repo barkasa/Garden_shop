@@ -8,7 +8,7 @@ export default function CategorieItem({ title, image, id }) {
   return (
     <div className={s.category_card}>
       <div>
-        <Link to="/categoryItem">
+        <Link to={`/categoryItem/${id}`}>
           <div className={s.card_img}>
             <img src={imageUrl} alt={title} />
           </div>

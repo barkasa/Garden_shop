@@ -1,7 +1,8 @@
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategoryList } from "../../requests/requests";
+import { Link } from "react-router-dom";
 import CategorieItem from "../CategorieItem/CategorieItem";
-import { useEffect } from "react";
 import s from "./CategoriesList.module.css";
 
 export default function CategoriesList({ count }) {
@@ -16,7 +17,10 @@ export default function CategoriesList({ count }) {
     <div className={s.categories_wrapper}>
       <div className={s.category_card}>
         {categories.slice(0, count).map((elem) => (
-          <CategorieItem key={elem.id} {...elem} />
+          <div key={elem.id}>
+            <Link to={`/categoryItem/${elem.id}`}>{elem.name}</Link>
+            <CategorieItem {...elem} />
+          </div>
         ))}
       </div>
     </div>
