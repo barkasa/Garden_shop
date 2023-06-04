@@ -1,37 +1,53 @@
 import React from "react";
-import s from "./Header.module.css";
-import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
-
+import { NavLink } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import Button from "../Button/Button";
+import CartCounter from "../CartCouter/CartCounter";
+import logo from "../../images/logo.png";
+import s from "./Header.module.css";
 
 export default function Header() {
   return (
     <div className={s.header_wrapper}>
       <nav className={s.nav_wrapper}>
         <div className={s.logo_button_wrapper}>
-          <Link className={s.logo_link} to="/">
+          <NavLink className={s.logo_link} to="/">
             <img src={logo} alt="logo" />
-          </Link>
-          <Link to="/categoriesList">
+          </NavLink>
+          <NavLink to="/categoriesList">
             <Button className="small_btn" label="Catalog" />
-          </Link>
+          </NavLink>
         </div>
 
         <div className={s.nav_item_wrapper}>
-          <Link className={s.nav_link} to="/">
+          <NavLink
+            className={`${s.nav_link} ${s.mainPageLink}`}
+            exact="true"
+            to="/"
+            activeclassname={s.active}
+          >
             Main Page
-          </Link>
-          <Link className={s.nav_link} to="/productsList">
+          </NavLink>
+          <NavLink
+            className={s.nav_link}
+            to="/productsList"
+            activeclassname={s.active}
+          >
             All products
-          </Link>
-          <Link className={s.nav_link} to="/productsSailList">
+          </NavLink>
+          <NavLink
+            className={s.nav_link}
+            to="/productsSailList"
+            activeclassname={s.active}
+          >
             All sales
-          </Link>
-          <Link className={s.cart_link} to="/cart">
-            <HiOutlineShoppingBag className={s.cart_icon} />
-          </Link>
+          </NavLink>
+          <NavLink className={s.cart_link} to="/cart">
+            <HiOutlineShoppingBag
+              className={`${s.cart_icon} ${s.activeCartIcon}`}
+            />
+            <CartCounter />
+          </NavLink>
         </div>
       </nav>
     </div>

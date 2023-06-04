@@ -27,11 +27,13 @@ export default function ProductsList({ count }) {
 
   return (
     <div className={s.card_container}>
-      {targetProducts.map((elem, index) => (
-        <div className={s.card} key={index}>
-          <ProductItem {...elem} />
-        </div>
-      ))}
+      {targetProducts
+        .filter((product) => product.rangeVisible)
+        .map((product) => (
+          <div className={s.card} key={product.id}>
+            <ProductItem {...product} />
+          </div>
+        ))}
     </div>
   );
 }

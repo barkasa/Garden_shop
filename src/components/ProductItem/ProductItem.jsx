@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import s from "./ProductItem.module.css";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { addToCartAction } from "../../store/reducers/cartReducer";
+import { useDispatch } from "react-redux";
 
 export default function ProductItem({
   title,
@@ -13,6 +15,7 @@ export default function ProductItem({
 }) {
   const imageUrl = "http://localhost:3333/" + image;
   const [isHovered, setIsHovered] = useState(false);
+  const dispatch = useDispatch();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -22,6 +25,20 @@ export default function ProductItem({
     setIsHovered(false);
   };
 
+  const handleAddToCart = () => {
+    console.log("Button clicked");
+    dispatch(
+      addToCartAction({
+        title,
+        price,
+        discont_price,
+        image,
+        description,
+        id,
+      })
+    );
+  };
+
   return (
     <div
       className={s.product_item}
@@ -29,22 +46,23 @@ export default function ProductItem({
       onMouseLeave={handleMouseLeave}
     >
       <div className={s.card}>
-        {/* // */}
         <Link to={`/products/${id}`} className={s.product_link}>
-          {/* // */}
-          <img src={imageUrl} alt="foto" className={s.product_image} />
+          <img src={imageUrl} alt={title} className={s.product_image} />
         </Link>
         {isHovered && (
-          <Button className="add_to_cart_btn" label="Add to cart" />
+          <Button
+            className="add_to_cart_btn"
+            label="Add to cart"
+            onClick={handleAddToCart}
+          />
         )}
-
         <div className={s.text_wrapper}>
           {discont_price ? (
             <div className={s.product_details}>
               <p className={s.discont_price}>{discont_price}$</p>
               <p className={s.price}>{price}$</p>
               <p className={s.discount_percentage}>
-                {Math.round(((price - discont_price) / price) * 100)}%
+                {Math.floor(((price - discont_price) / price) * 100)}%
               </p>
             </div>
           ) : (
@@ -53,11 +71,7 @@ export default function ProductItem({
             </div>
           )}
         </div>
-
         <h2 className={s.product_title}>{title}</h2>
-        {/* // */}
-
-        {/* // */}
       </div>
     </div>
   );

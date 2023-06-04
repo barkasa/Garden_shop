@@ -1,12 +1,16 @@
 import { ggetCategoriesAction } from "../store/reducers/categoriesReducer";
 import { getProductsAction } from "../store/reducers/productsReducer";
-// import { getCategoryAction } from "../store/reducers/categoryReducer";
 
 const base_url = "http://localhost:3333";
 
 const products_url = base_url + "/products/all";
 const categories_url = base_url + "/categories/all";
 // const category_url = base_url + "/categories/";
+
+//
+const getDiscount_url = base_url + "/sale/send";
+const sendOder_url = base_url + "/order/send";
+//
 
 export const fetchProductList = () => {
   return function (dispatch) {
@@ -25,16 +29,6 @@ export const fetchCategoryList = () => {
       .catch((error) => console.log(error));
   };
 };
-//post запрос
-export function discountRequest(discount) {
-  return fetch("/discount", {
-    method: "POST",
-    body: JSON.stringify(discount),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then((response) => response.json());
-}
 
 export const fetchProductsByCategory = (categoryId) => {
   const url = `${base_url}/categories/${categoryId}`;
@@ -63,4 +57,34 @@ export const fetchProduct = (productId) => {
         console.log(error);
       });
   };
+};
+
+export const send_coupon_request = (phone) => {
+  return (dispatch) => {
+    // Имитация отправки запроса и получения ответа
+    const response = {
+      status: "OK",
+      message: "request processed",
+    };
+
+    // Имитация задержки ответа
+    setTimeout(() => {
+      console.log("Request sent", response);
+      dispatch({ type: "COUPON_REQUEST_SUCCESS", payload: response });
+    }, 1000);
+  };
+};
+
+////
+export const send_order = (phone) => {
+  fetch(sendOder_url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(phone),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log("Request sent", data))
+    .catch((error) => console.error("Error:", error));
 };

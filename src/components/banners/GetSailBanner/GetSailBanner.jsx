@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import s from "./GetSailBanner.module.css";
 import dwarf from "../../../images/dwarf.png";
+import { send_coupon_request } from "../../../requests/requests";
+import { useDispatch } from "react-redux";
 
 export default function GetSailBanner() {
   const [phone, setPhone] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
   const [formError, setFormError] = useState(false);
   const [discountReceived, setDiscountReceived] = useState(false);
+  const [submitted, setSubmitted] = useState(false); // Добавленное состояние submitted
+  const [discountUsed, setDiscountUsed] = useState(false); // Добавленное состояние discountUsed
+
+  const dispatch = useDispatch();
 
   const handlePhoneChange = (e) => {
     const inputValue = e.target.value;
@@ -36,11 +42,22 @@ export default function GetSailBanner() {
       console.log("Discount request processed");
       setDiscountApplied(true);
       setPhone("");
+
       setDiscountReceived(true); // Обновление состояния при удачном сабмите
+
+      dispatch(send_coupon_request(phone)); // Отправка запроса на получение купона
+      setSubmitted(true); // Установка состояния submitted в true после удачного сабмита
       setTimeout(() => {
         setDiscountReceived(false); // Сброс состояния через некоторое время
-      }, 3000);
-    }, 1000);
+      }, 2000);
+
+      //
+      setDiscountApplied(true);
+      localStorage.setItem("discountApplied", JSON.stringify(true));
+
+      setDiscountUsed(true); // Устанавливаем discountUsed в true при применении скидки
+      //
+    }, 500);
   };
 
   return (
@@ -56,10 +73,13 @@ export default function GetSailBanner() {
           className={
             formError ? `${s.tel_input} ${s.tel_input_error}` : s.tel_input
           }
-          type="text"
+          type="tel"
           placeholder="+49"
-          value={phone}
+          name="phone"
+          required
           onChange={handlePhoneChange}
+          value={phone}
+          disabled={submitted}
         />
         <div className={s.message_wrapper}>
           {formError && (

@@ -10,13 +10,7 @@
   align-items: center;
   justify-content: space-between;
 }
-/* ///// */
-/* .logo_link {
-  width: 72px;
-  height: 72px;
-  margin-right: 59px;
-  cursor: pointer;
-} */
+
 .logo_link {
   width: 72px;
   height: 72px;
@@ -80,6 +74,7 @@
   margin-left: 134px;
   position: relative;
   display: inline-block;
+  z-index: 3;
 }
 
 .cart_icon {
@@ -110,4 +105,8 @@
 .cart_link:hover::before {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
+}
+
+.nav_link:global(.active) {
+  color: #339933;
 }

@@ -57,6 +57,7 @@
   color: #ffffff;
 }
 
+/* Стили для большой кнопки */
 .button_large {
   width: 341px;
   height: 86px;
@@ -72,7 +73,22 @@
   border: 2px solid #287728;
 }
 
-/* Стили для большой кнопки */
+.order_button {
+  padding: 20px 158px 20px 143px;
+  width: 446px;
+  height: 76px;
+  font-weight: 700;
+  font-size: 28px;
+  border-radius: 17px;
+  background: #339933;
+  border: 2px solid #339933;
+  color: #ffffff;
+}
+.order_button:hover {
+  box-shadow: inset 0px 0px 8px 10px #2b812b;
+  background: #2b812b;
+  border: 2px solid #287728;
+}
 
 /* Стили для Add to card кнопки */
 

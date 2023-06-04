@@ -1,18 +1,29 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import s from "./ProductPage.module.css";
 import Button from "../../components/Button/Button";
+import { addToCartAction } from "../../store/reducers/cartReducer";
 
 const ProductPage = () => {
   const { productId } = useParams();
   const products = useSelector((state) => state.products);
   const product = products.find((p) => p.id === parseInt(productId));
-
+  const dispatch = useDispatch();
   if (!product) {
     return <div>Товар не найден</div>;
   }
+
+  const handleAddToCart = () => {
+    console.log("Button clicked");
+    dispatch(addToCartAction(product));
+    someOtherFunction();
+  };
+
+  const someOtherFunction = () => {
+    console.log("Some other function called");
+  };
 
   return (
     <div className={s.product_page}>
@@ -31,7 +42,7 @@ const ProductPage = () => {
               <p className={s.discont_price}>{product.discont_price}$</p>
               <p className={s.price}>{product.price}$</p>
               <p className={s.discount_percentage}>
-                {Math.round(
+                {Math.floor(
                   ((product.price - product.discont_price) / product.price) *
                     100
                 )}
@@ -44,7 +55,11 @@ const ProductPage = () => {
             </div>
           )}
           {/* <Button className={s.button} label="Add to Cart" /> */}
-          <Button className="large_btn" label="Add to Cart" />
+          <Button
+            className="large_btn"
+            label="Add to Cart"
+            onClick={handleAddToCart}
+          />
           <div className={s.divider}></div>
           <h2 className={s.description_title}>Description</h2>
           <p className={s.description}>{product.description}</p>

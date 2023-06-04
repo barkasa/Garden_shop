@@ -1,35 +1,3 @@
-// import React from "react";
-// import s from "./SailBanner.module.css";
-// import banerImage from "../../../images/banerImage.png";
-
-// import { Link } from "react-scroll";
-
-// import Button from "../../Button/Button";
-
-// export default function SailBanner() {
-//   return (
-//     <div className={s.banner_wrapper}>
-//       <div className={s.sail_banner}>
-//         <div>
-//           <h1 className={s.sale_heading}>Sale</h1>
-//           <h2 className={s.season_heading}>New season</h2>
-//           <Link to="sail" smooth={true} duration={500}>
-//             <Button className="sale_btn" label="Sale" />
-//           </Link>
-//         </div>
-//         <div className={s.baner_image}>
-//           <img
-//             src={banerImage}
-//             alt="banerImage"
-//             className={s.baner_image_img}
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-// import React from "react";
-
 //////////
 import React, { useState, useEffect } from "react";
 import s from "./SailBanner.module.css";

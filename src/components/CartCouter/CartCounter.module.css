@@ -1,0 +1,15 @@
+.cart_counter {
+  height: 18px;
+  width: 18px;
+
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  background-color: #339933;
+  color: white;
+}
