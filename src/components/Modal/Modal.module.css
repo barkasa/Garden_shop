@@ -1,0 +1,134 @@
+.modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(164, 195, 199, 0.9);
+
+  z-index: 9999;
+}
+
+.modal_content {
+  margin-bottom: 23px;
+  font-size: 38px;
+  color: #ffffff;
+  text-shadow: 1px 3px 3px rgb(70, 70, 70);
+}
+
+.close_icon {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  cursor: pointer;
+  color: #fa6d6d;
+  background-size: cover;
+}
+
+.modal_links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 180px;
+}
+
+.modal_links .nav_link {
+  margin-bottom: 23px;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 38px;
+}
+
+.modal_links .nav_link:hover {
+  color: #339933;
+}
+
+.modal_links .nav_link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #339933;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.modal_links .nav_link:hover::after {
+  transform: scaleX(1);
+}
+
+/* .modal {
+ 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(164, 195, 199, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal_content {
+  margin-bottom: 23px;
+  font-size: 38px;
+  color: #ffffff;
+  text-shadow: 1px 5px 5px black;
+}
+
+.modal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #a4c3c7e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.close_icon {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  cursor: pointer;
+  color: #fa6d6de0;
+  background-size: cover;
+}
+.nav_link {
+  margin-right: 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+.nav_link:hover {
+  color: #339933;
+}
+.nav_link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #339933;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav_link:hover::after {
+  transform: scaleX(1);
+} */

@@ -8,63 +8,36 @@
 
 .contacts_wrapper {
   display: flex;
-
   justify-content: space-between;
-}
-
-.contacts {
-  margin-right: 162px;
 }
 .contact_logo {
   display: flex;
-  flex-direction: row;
-}
-.contactItem_logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 34px;
-}
-.contactItem_logo p {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  margin-top: 10px;
-}
-.social_icon {
-  width: 44px;
-  height: 44px;
 }
 .contact_title {
   width: 167px;
   height: 52px;
   font-weight: 700;
   font-size: 40px;
-  /* line-height: 130%; */
   margin-bottom: 25px;
 }
-
 .contact_phone {
-  width: 649px;
-  height: 91px;
   font-weight: 600;
   font-size: 70px;
-  /* line-height: 130%; */
   margin-bottom: 33px;
 }
-
-.social_link {
+.contactItem_logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  color: #000000;
-  margin-top: 20px;
+}
+.first_contactItem_logo {
+  margin-right: 34px;
 }
 
 .social_icon {
   width: 44px;
   height: 44px;
-  /* margin-right: 10px; */
+  color: #000000;
 }
 .contactItem_logo:hover {
   transition: all 0.5s;
@@ -73,22 +46,20 @@
   color: #339933;
   cursor: pointer;
 }
-.adress_wrapper {
-  /* width: 50%; */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
 .adress_title {
   font-weight: 700;
   font-size: 40px;
-  /* line-height: 130%; */
+
   margin-bottom: 25px;
 }
-
+.adress_link {
+  text-decoration: none;
+  color: #000000;
+}
 .adress_text {
+  width: 520px;
+  height: 104px;
+  line-height: 130%;
   font-weight: 600;
   font-size: 40px;
   margin-bottom: 20px;
@@ -102,10 +73,45 @@
   font-weight: 500;
   font-size: 18px;
   margin-bottom: 2px;
-  /* line-height: 130%; */
 }
-
 .working_hours_text {
   font-weight: 600;
   font-size: 24px;
+}
+
+@media screen and (max-width: 1200px) {
+  .contacts_wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact_title {
+    margin: 0 auto;
+  }
+  .contact_phone {
+    font-weight: 600;
+    font-size: 35px;
+    margin-bottom: 33px;
+  }
+  .contact_logo {
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+
+  .adress_title {
+    font-weight: 700;
+    font-size: 30px;
+  }
+  .adress_text {
+    width: auto;
+
+    font-weight: 600;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .adress_wrapper {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
