@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Garden_shop/static/css/main.1afc2ce0.css",
-    "main.js": "/Garden_shop/static/js/main.bdc93554.js",
-    "static/media/notFoundPage.png": "/Garden_shop/static/media/notFoundPage.b767db95499b6ac5aa96.png",
-    "static/media/banerImage.png": "/Garden_shop/static/media/banerImage.08956bea9bbad00b25e6.png",
-    "static/media/banerImage_3.png": "/Garden_shop/static/media/banerImage_3.b89629beb2d9974b023d.png",
-    "static/media/banerImage_2.png": "/Garden_shop/static/media/banerImage_2.e0427a149cc18b238893.png",
-    "static/media/dwarf.png": "/Garden_shop/static/media/dwarf.44ddfa3ba42c2be627b5.png",
-    "index.html": "/Garden_shop/index.html",
-    "main.1afc2ce0.css.map": "/Garden_shop/static/css/main.1afc2ce0.css.map",
-    "main.bdc93554.js.map": "/Garden_shop/static/js/main.bdc93554.js.map"
+    "main.css": "./static/css/main.18504988.css",
+    "main.js": "./static/js/main.56b5f910.js",
+    "static/media/notFoundPage.png": "./static/media/notFoundPage.b767db95499b6ac5aa96.png",
+    "static/media/banerImage.png": "./static/media/banerImage.08956bea9bbad00b25e6.png",
+    "static/media/banerImage_3.png": "./static/media/banerImage_3.b89629beb2d9974b023d.png",
+    "static/media/banerImage_2.png": "./static/media/banerImage_2.e0427a149cc18b238893.png",
+    "static/media/dwarf.png": "./static/media/dwarf.44ddfa3ba42c2be627b5.png",
+    "index.html": "./index.html",
+    "main.18504988.css.map": "./static/css/main.18504988.css.map",
+    "main.56b5f910.js.map": "./static/js/main.56b5f910.js.map"
   },
   "entrypoints": [
-    "static/css/main.1afc2ce0.css",
-    "static/js/main.bdc93554.js"
+    "static/css/main.18504988.css",
+    "static/js/main.56b5f910.js"
   ]
 }
