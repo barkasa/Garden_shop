@@ -28,7 +28,7 @@ function App() {
       <Header />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="" element={<HomePage />} />
         <Route path="/categoriesList" element={<CategoriesListPage />} />
 
         <Route path="/productsList" element={<ProductsListPage />} />
@@ -56,3 +56,5 @@ function App() {
   );
 }
 export default App;
+
+// "homepage": "https://barkasa.github.io/Garden_shop/",

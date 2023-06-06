@@ -9,7 +9,9 @@
 .card_container {
   display: grid;
   grid-template-columns: repeat(4, minmax(300px, 1fr));
-  gap: 43px;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+
+  gap: 20px;
 }
 
 .products_list_title {

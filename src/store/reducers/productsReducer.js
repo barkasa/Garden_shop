@@ -6,19 +6,17 @@ const SORT_BY_PRICE_DESC = "SORT_BY_PRICE_DESC";
 const SORT_BY_RANGE = "SORT_BY_RANGE";
 const SORT_BY_PRICE_ASC = "SORT_BY_PRICE_ASC";
 const SORT_BY_NAME_ASC = "SORT_BY_NAME_ASC";
+const SORT_BY_NAME_DESC = "SORT_BY_NAME_DESC";
 const FILTER_PRODUCTS_BY_SALE = "FILTER_PRODUCTS_BY_SALE";
-//
-const FILTER_PRODUCTS_BY_RANGE = "FILTER_PRODUCTS_BY_RANGE";
+// const FILTER_PRODUCTS_BY_RANGE = "FILTER_PRODUCTS_BY_RANGE";
 
 export const productsReducer = (state = defaultState, action) => {
   switch (action.type) {
-    // productsReducer.js
     case GET_PRODUCTS:
       return [
         ...action.payload.map((product) => ({
           ...product,
           rangeVisible: true,
-          showBySale: true, // Добавлено новое свойство
         })),
       ];
 
@@ -37,73 +35,24 @@ export const productsReducer = (state = defaultState, action) => {
         const titleB = b.title || "";
         return titleA.localeCompare(titleB);
       });
+    case SORT_BY_NAME_DESC:
+      return [...state].sort((a, b) => {
+        const titleA = a.title || "";
+        const titleB = b.title || "";
+        return titleB.localeCompare(titleA);
+      });
 
-    // case FILTER_PRODUCTS_BY_SALE:
-    //   const filteredProducts = state.map((product) => {
-    //     if (action.payload && !product.discounted) {
-    //       return { ...product, rangeVisible: false };
-    //     }
-    //     return { ...product, rangeVisible: true };
-    //   });
-    //   return filteredProducts;
-    //
     case FILTER_PRODUCTS_BY_SALE:
       if (action.payload) {
-        return state.map((elem) => {
-          if (elem.discont_price === null) {
-            elem.showBySale = false;
+        return state.map((product) => {
+          if (product.rangeVisible === null) {
+            product.rangeVisible = false;
           }
-          return elem;
+          return product;
         });
       } else {
-        return state.map((elem) => ({ ...elem, showBySale: true }));
+        return state.map((product) => ({ ...product, rangeVisible: true }));
       }
-    // ...
-
-    // case SORT_BY_RANGE:
-    //   const { from, to } = action.payload;
-
-    // Фильтрация товаров по диапазону цен
-    // const filteredProductsByRange = state.map((product) => {
-    //   if (
-    //     (from !== null && product.price < from) ||
-    //     (to !== null && product.price > to)
-    //   ) {
-    //     return { ...product, rangeVisible: false };
-    //   }
-    //   return { ...product, rangeVisible: true };
-    // });
-    // // return filteredProductsByRange;
-
-    // // Возвращаем исходное состояние, если диапазон не задан
-    // // return state.map((product) => ({
-    // //   ...product,
-    // //   rangeVisible: true,
-    // // }));
-    // if (from === null && to === null) {
-    //   return state.map((product) => ({
-    //     ...product,
-    //     rangeVisible: true,
-    //   }));
-    // } else {
-    //   return filteredProductsByRange;
-    // }
-    case FILTER_PRODUCTS_BY_RANGE:
-      console.log(action.payload);
-      let { from, to } = action.payload;
-      if (isNaN(to)) {
-        to = Infinity;
-      }
-      if (isNaN(from)) {
-        from = -Infinity;
-      }
-      return [...state].map((product) => ({
-        ...product,
-        showByRange:
-          (product.discont_price ? product.discont_price : product.price) >=
-            from &&
-          (product.discont_price ? product.discont_price : product.price) <= to,
-      }));
 
     default:
       return state;
@@ -119,12 +68,8 @@ export const sortByRangeAction = (payload) => ({
 });
 export const sortByPriceAscAction = () => ({ type: SORT_BY_PRICE_ASC });
 export const sortByNameAscAction = () => ({ type: SORT_BY_NAME_ASC });
-export const filterProductsBySaleAction = (payload) => ({
+export const sortByNameDescAction = () => ({ type: SORT_BY_NAME_DESC });
+export const filterBySaleAction = (payload) => ({
   type: FILTER_PRODUCTS_BY_SALE,
-  payload,
-});
-//
-export const filterByRangeAction = (payload) => ({
-  type: FILTER_PRODUCTS_BY_RANGE,
   payload,
 });

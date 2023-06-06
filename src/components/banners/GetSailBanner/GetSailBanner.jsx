@@ -10,7 +10,7 @@ export default function GetSailBanner() {
   const [formError, setFormError] = useState(false);
   const [discountReceived, setDiscountReceived] = useState(false);
   const [submitted, setSubmitted] = useState(false); // Добавленное состояние submitted
-  const [discountUsed, setDiscountUsed] = useState(false); // Добавленное состояние discountUsed
+  // const [discountUsed, setDiscountUsed] = useState(false); // Добавленное состояние discountUsed
 
   const dispatch = useDispatch();
 
@@ -55,8 +55,8 @@ export default function GetSailBanner() {
       setDiscountApplied(true);
       localStorage.setItem("discountApplied", JSON.stringify(true));
 
-      setDiscountUsed(true); // Устанавливаем discountUsed в true при применении скидки
-      //
+      // setDiscountUsed(true); // Устанавливаем discountUsed в true при применении скидки
+      // //
     }, 500);
   };
 

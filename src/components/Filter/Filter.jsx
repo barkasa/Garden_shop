@@ -1,22 +1,36 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import s from "../Filter/Filter.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   sortByDefaultAction,
   sortByPriceDescAction,
   sortByPriceAscAction,
   sortByRangeAction,
   sortByNameAscAction,
-  filterProductsBySaleAction,
+  sortByNameDescAction,
+  filterBySaleAction,
 } from "../../store/reducers/productsReducer";
 
-export default function Filter() {
+export default function Filter({ location, showDiscountedItems = true }) {
   const refFrom = useRef();
   const refTo = useRef();
   const dispatch = useDispatch();
+  const saleFilterValue = useSelector((state) => state.products.saleFilter);
+
+  const filterBySale = useSelector((state) => state.products.filterBySale);
+
+  useEffect(() => {
+    dispatch(filterBySaleAction(saleFilterValue));
+  }, [dispatch, saleFilterValue]);
+
+  const handleFilterBySale = () => {
+    console.log("Checkbox value:", filterBySale);
+    dispatch(filterBySaleAction(!filterBySale));
+  };
 
   const handleSortOption = (e) => {
     e.preventDefault();
+    console.log("Selected option:", e.target.value);
 
     switch (e.target.value) {
       case "default":
@@ -28,8 +42,11 @@ export default function Filter() {
       case "priceAsc":
         dispatch(sortByPriceAscAction());
         break;
-      case "name":
+      case "nameAsc":
         dispatch(sortByNameAscAction());
+        break;
+      case "nameDesc":
+        dispatch(sortByNameDescAction());
         break;
       default:
         break;
@@ -48,15 +65,7 @@ export default function Filter() {
       to,
     };
 
-    console.log("Range:", range);
-
     dispatch(sortByRangeAction(range));
-  };
-
-  const handleFilterBySale = (e) => {
-    const isChecked = e.target.checked;
-    console.log("Filter by sale:", isChecked);
-    dispatch(filterProductsBySaleAction(isChecked));
   };
 
   return (
@@ -78,27 +87,28 @@ export default function Filter() {
           onChange={handleRange}
         />
       </label>
-      <label className={s.filter_discountChek}>
-        Discounted items
-        <div>
-          <input
-            // onClick={handleDiscountedItems}
-            onClick={(e) =>
-              dispatch(filterProductsBySaleAction(e.target.checked))
-            }
-            className={s.input_checkBox}
-            type="checkbox"
-            onChange={handleFilterBySale}
-          />
-        </div>
-      </label>
+      {showDiscountedItems && (
+        <label className={s.filter_discountChek}>
+          Discounted items
+          <div>
+            <input
+              className={s.input_checkBox}
+              checked={filterBySale}
+              onChange={handleFilterBySale}
+              type="checkbox"
+            />
+          </div>
+        </label>
+      )}
+
       <label className={s.filter_Sort_price}>
         Sorted
         <select className={s.input_select} onChange={handleSortOption}>
           <option value="default">Default</option>
           <option value="priceDesc">Price (low to high)</option>
           <option value="priceAsc">Price (high to low)</option>
-          <option value="name">Name (A to Z)</option>
+          <option value="nameAsc">Name (A to Z)</option>
+          <option value="nameDesc">Name (Z to A)</option>
         </select>
       </label>
     </div>

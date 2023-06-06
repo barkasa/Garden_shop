@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Footer.module.css";
 import { IoLogoInstagram, IoLogoWhatsapp } from "react-icons/io5";
-import { Element, Link } from "react-scroll";
+
 import Map from "../Map/Map";
 
 export default function Footer() {
@@ -49,11 +49,10 @@ export default function Footer() {
           <p className={s.working_hours_text}>24 hours a day</p>
         </div>
       </div>
-      <Element name="map">
-        <div className={s.map_wrapper}>
-          <Map />
-        </div>
-      </Element>
+
+      <div className={s.map_wrapper}>
+        <Map />
+      </div>
     </div>
   );
 }

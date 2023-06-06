@@ -3,6 +3,12 @@
   grid-template-columns: repeat(4, minmax(300px, 1fr));
   gap: 43px;
 }
+.card_container {
+  /* display: flex;
+  gap: 43px; */
+  /* grid-template-columns: repeat(4, minmax(300px, 1fr));
+  gap: 43px; */
+}
 .card_container > .card:last-child {
   margin-right: 0;
 }

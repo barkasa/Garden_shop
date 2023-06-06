@@ -5,10 +5,7 @@ const base_url = "http://localhost:3333";
 
 const products_url = base_url + "/products/all";
 const categories_url = base_url + "/categories/all";
-// const category_url = base_url + "/categories/";
 
-//
-const getDiscount_url = base_url + "/sale/send";
 const sendOder_url = base_url + "/order/send";
 //
 

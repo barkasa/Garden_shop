@@ -18,7 +18,8 @@ const SailPage = () => {
   return (
     <div className={s.sail_wrapper}>
       <h2 className={s.sail_page_title}>Products with sale</h2>
-      <Filter />
+      <Filter location="sail_page" showDiscountedItems={false} />
+
       <div className={s.card_container}>
         {saleProducts.map((product) => (
           <ProductItem key={product.id} {...product} />

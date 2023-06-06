@@ -46,16 +46,18 @@ export default function ProductItem({
       onMouseLeave={handleMouseLeave}
     >
       <div className={s.card}>
-        <Link to={`/products/${id}`} className={s.product_link}>
-          <img src={imageUrl} alt={title} className={s.product_image} />
-        </Link>
-        {isHovered && (
-          <Button
-            className="add_to_cart_btn"
-            label="Add to cart"
-            onClick={handleAddToCart}
-          />
-        )}
+        <div>
+          <Link to={`/products/${id}`} className={s.product_link}>
+            <img src={imageUrl} alt={title} className={s.product_image} />
+          </Link>
+          {isHovered && (
+            <Button
+              className="add_to_cart_btn"
+              label="Add to cart"
+              onClick={handleAddToCart}
+            />
+          )}
+        </div>
         <div className={s.text_wrapper}>
           {discont_price ? (
             <div className={s.product_details}>
