@@ -9,9 +9,27 @@ import CategoriesList from "../../components/CategoriesList/CategoriesList";
 import { Link } from "react-router-dom";
 import { Element } from "react-scroll";
 import Button from "../../components/Button/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductList } from "../../requests/requests";
+import { useEffect } from "react";
 // import { Link } from "react-scroll";
 
 export default function HomePage() {
+  const products = useSelector(store => store.products)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchProductList())
+    window.scrollTo(0, 0);
+  }, [])
+
+  let targetProducts = products
+    .filter((product) => product.discont_price)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
+
+  console.log(targetProducts);
+
   return (
     <div>
       <SailBanner />
@@ -30,7 +48,7 @@ export default function HomePage() {
       <Element name="sail" className={s.sail_section}>
         <div className={s.sail_wrapper}>
           <h2 className={s.sail_title}>Sale</h2>
-          <ProductsList count={3} />
+          <ProductsList products={targetProducts} />
         </div>
       </Element>
     </div>

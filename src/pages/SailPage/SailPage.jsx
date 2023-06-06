@@ -4,6 +4,7 @@ import { fetchProductList } from "../../requests/requests";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import s from "./SailPage.module.css";
 import Filter from "../../components/Filter/Filter";
+import ProductsList from "../../components/ProductsList/ProductsList";
 
 const SailPage = () => {
   const dispatch = useDispatch();
@@ -21,9 +22,10 @@ const SailPage = () => {
       <Filter location="sail_page" showDiscountedItems={false} />
 
       <div className={s.card_container}>
-        {saleProducts.map((product) => (
+        <ProductsList location='sale' products={saleProducts} />
+        {/* {saleProducts.map((product) => (
           <ProductItem key={product.id} {...product} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

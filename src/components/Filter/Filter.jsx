@@ -10,22 +10,25 @@ import {
   sortByNameDescAction,
   filterBySaleAction,
 } from "../../store/reducers/productsReducer";
+import { log } from "react-modal/lib/helpers/ariaAppHider";
+import { filterCategoryItemBySale, filterCategoryItemsByRange } from "../../store/reducers/categoryReducer";
+import { useState } from "react";
 
 export default function Filter({ location, showDiscountedItems = true }) {
   const refFrom = useRef();
   const refTo = useRef();
   const dispatch = useDispatch();
-  const saleFilterValue = useSelector((state) => state.products.saleFilter);
+  // const saleFilterValue = useSelector((state) => state.products.saleFilter);
 
-  const filterBySale = useSelector((state) => state.products.filterBySale);
+  // const filterBySale = useSelector((state) => state.products).filter(elem => elem.discont_price);
 
-  useEffect(() => {
-    dispatch(filterBySaleAction(saleFilterValue));
-  }, [dispatch, saleFilterValue]);
+  // useEffect(() => {
+  //   dispatch(filterBySaleAction(saleFilterValue));
+  // }, [dispatch, saleFilterValue]);
 
-  const handleFilterBySale = () => {
-    console.log("Checkbox value:", filterBySale);
-    dispatch(filterBySaleAction(!filterBySale));
+  const handleFilterBySale = (e) => {
+    dispatch(location === 'category_item' ? filterCategoryItemBySale(e.target.checked) : filterBySaleAction(e.target.checked))
+    // console.log("Checkbox value:", filterBySale);
   };
 
   const handleSortOption = (e) => {
@@ -53,19 +56,35 @@ export default function Filter({ location, showDiscountedItems = true }) {
     }
   };
 
-  const handleRange = () => {
-    const from = Number(refFrom.current.value) || null;
-    const to = Number(refTo.current.value) || null;
+  const [fromValue, setFromValue] = useState('from');
+  const [toValue, setToValue] = useState('to');
 
-    console.log("From:", from);
-    console.log("To:", to);
-
+  const handleRange = (e) => {
     const range = {
-      from,
-      to,
-    };
+      from: fromValue,
+      to: toValue
+    }
+    const { value } = e.target;
+    if (e.target.name === 'from') {
+      range.from = +value
+      setFromValue(Number(value))
+    } else {
+      range.to = +value
+      setToValue(Number(value))
+    }
+    dispatch(location === 'category_item' ? filterCategoryItemsByRange(range) : sortByRangeAction(range))
+    // const from = Number(refFrom.current.value) || null;
+    // const to = Number(refTo.current.value) || null;
 
-    dispatch(sortByRangeAction(range));
+    // console.log("From:", from);
+    // console.log("To:", to);
+
+    // const range = {
+    //   from,
+    //   to,
+    // };
+
+    // dispatch(sortByRangeAction(range));
   };
 
   return (
@@ -74,16 +93,20 @@ export default function Filter({ location, showDiscountedItems = true }) {
         Price
         <input
           className={s.input_toFrom}
-          type="text"
+          type="number"
           placeholder="from"
-          ref={refFrom}
+          name={"from"}
+          // ref={refFrom}
+          value={fromValue}
           onChange={handleRange}
         />
         <input
           className={s.input_toFrom}
-          type="text"
+          type="number"
           placeholder="to"
-          ref={refTo}
+          name={"to"}
+          // ref={refTo}
+          value={toValue}
           onChange={handleRange}
         />
       </label>
@@ -93,9 +116,9 @@ export default function Filter({ location, showDiscountedItems = true }) {
           <div>
             <input
               className={s.input_checkBox}
-              checked={filterBySale}
               onChange={handleFilterBySale}
               type="checkbox"
+
             />
           </div>
         </label>

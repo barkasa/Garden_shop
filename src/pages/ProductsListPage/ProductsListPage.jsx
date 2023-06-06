@@ -4,6 +4,7 @@ import { fetchProductList } from "../../requests/requests";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import s from "./ProductsListPage.module.css";
 import Filter from "../../components/Filter/Filter";
+import ProductsList from "../../components/ProductsList/ProductsList";
 
 const ProductsListPage = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,12 @@ const ProductsListPage = () => {
     <div className={s.products_wrapper}>
       <h2 className={s.products_list_title}>All Products</h2>
       <Filter />
-      <div className={s.card_container}>
+      <ProductsList products={products} />
+      {/* <div className={s.card_container}>
         {products.map((product) => (
           <ProductItem key={product.id} {...product} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
