@@ -37,10 +37,12 @@
   }
   .wrapper_title {
     flex-direction: column;
-    /* align-items: center; */
   }
   .categories_wrapper h2 {
     margin-right: 0;
     margin-bottom: 20px;
+  }
+  .sail_title {
+    text-align: center;
   }
 }

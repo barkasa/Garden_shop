@@ -5,28 +5,33 @@ import { useDispatch, useSelector } from "react-redux";
 import s from "./ProductPage.module.css";
 import Button from "../../components/Button/Button";
 import { addToCartAction } from "../../store/reducers/cartReducer";
+import { Helmet } from "react-helmet";
 
 const ProductPage = () => {
+  // Получение параметра productId из URL с помощью хука useParams()
   const { productId } = useParams();
+  // Получение списка продуктов из глобального состояния с помощью хука useSelector()
   const products = useSelector((state) => state.products);
+  // Нахождение продукта по его id
   const product = products.find((p) => p.id === parseInt(productId));
+  // Получение экземпляра dispatch из react-redux
   const dispatch = useDispatch();
+  // Проверка, найден ли продукт
   if (!product) {
     return <div>Товар не найден</div>;
   }
-
+  // Обработчик добавления продукта в корзину
   const handleAddToCart = () => {
-    console.log("Button clicked");
     dispatch(addToCartAction(product));
-    someOtherFunction();
-  };
-
-  const someOtherFunction = () => {
-    console.log("Some other function called");
   };
 
   return (
     <div className={s.product_page}>
+      <Helmet>
+        <title>{`Garden-shop ${String.fromCharCode(183)} ${
+          product.title
+        }`}</title>
+      </Helmet>
       <div className={s.product_info}>
         <div>
           <h1 className={s.title}>{product.title}</h1>
@@ -54,7 +59,7 @@ const ProductPage = () => {
               <p className={s.price}>{product.price}$</p>
             </div>
           )}
-          {/* <Button className={s.button} label="Add to Cart" /> */}
+
           <Button
             className="large_btn"
             label="Add to Cart"

@@ -13,6 +13,7 @@
   margin: 0 auto;
   width: 1345px;
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 }
@@ -29,6 +30,25 @@
 }
 
 .baner_image img {
-  width: 600px;
+  width: 650px;
   height: 500px;
+}
+
+@media (max-width: 900px) {
+  .sail_banner {
+    text-align: center;
+    flex-direction: column-reverse;
+    margin: 0 20px;
+  }
+  .sail_banner h1 {
+    font-size: 60px;
+  }
+  .sail_banner h2 {
+    font-size: 43px;
+  }
+  .baner_image img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
 }

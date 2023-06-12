@@ -88,3 +88,9 @@
 .product_item {
   position: relative;
 }
+
+@media (max-width: 1030px) {
+  .product_title {
+    font-size: 16px;
+  }
+}

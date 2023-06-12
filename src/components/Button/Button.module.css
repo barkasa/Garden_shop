@@ -33,10 +33,12 @@
   border-radius: 13px;
   padding: 25px 50px;
   font-size: 25px;
+  margin-bottom: 35px;
 }
 .sale_button:hover {
   box-shadow: inset 0px 0px 10px 12px #c9c9c9;
   background: #c9c9c9;
+  /* background: #ff32a1; */
   border: 2px solid #ffffff;
   color: #ffffff;
 }
@@ -71,6 +73,11 @@
   box-shadow: inset 0px 0px 8px 10px #2b812b;
   background: #2b812b;
   border: 2px solid #287728;
+}
+@media (max-width: 500px) {
+  .button_large {
+    width: 270px;
+  }
 }
 
 .order_button {

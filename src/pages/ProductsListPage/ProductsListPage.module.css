@@ -1,16 +1,14 @@
 .products_wrapper {
   margin: 0 auto;
-  width: 1345px;
-  /* min-height: 532px; */
+  max-width: 1345px;
   padding: 0 0 45px 0;
   background: #ffffff;
+  /* align-items: center; */
 }
 
 .card_container {
   display: grid;
   grid-template-columns: repeat(4, minmax(300px, 1fr));
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-
   gap: 20px;
 }
 
@@ -18,4 +16,13 @@
   font-weight: 700;
   font-size: 40px;
   margin-bottom: 81px;
+}
+@media (max-width: 1030px) {
+  .products_list_title {
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+  .products_wrapper {
+    padding: 0 25px;
+  }
 }

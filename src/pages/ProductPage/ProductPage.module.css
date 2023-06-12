@@ -29,7 +29,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-
   margin-bottom: 40px;
 }
 
@@ -38,7 +37,6 @@
   font-size: 70px;
   color: #000000;
 }
-
 .price {
   font-weight: 500;
   font-size: 20px;
@@ -48,7 +46,6 @@
 }
 .no_discount_price {
   justify-content: flex-start;
-  /* margin-left: 30px; */
 }
 .no_discount_price p {
   text-decoration-line: none;
@@ -56,14 +53,12 @@
   font-size: 70px;
   color: #000000;
 }
-
 .discount_percentage {
   font-weight: 600;
   font-size: 28px;
   letter-spacing: 0.03em;
   color: #ff32a1;
 }
-
 .divider {
   width: 422px;
   border: 1px dashed #c0c0c0;
@@ -80,4 +75,76 @@
   width: 412px;
   font-weight: 500;
   font-size: 20px;
+}
+
+/* /// */
+
+@media (max-width: 1370px) {
+  .product_page {
+    padding: 0 20px;
+    width: auto;
+    text-align: center;
+  }
+
+  .product_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+  }
+
+  .image {
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .price_wrapper {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product_details {
+    display: flex;
+    align-items: center;
+
+    gap: 35px;
+  }
+
+  .discont_price {
+    font-size: 40px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .no_discount_price p {
+    font-size: 40px;
+  }
+
+  .discount_percentage {
+    font-size: 18px;
+  }
+
+  .divider {
+    width: 262px;
+  }
+
+  .description_title {
+    font-size: 14px;
+  }
+
+  .description {
+    width: 100%;
+    font-size: 14px;
+  }
 }

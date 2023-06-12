@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import s from "../Filter/Filter.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   sortByDefaultAction,
   sortByPriceDescAction,
@@ -11,21 +11,25 @@ import {
   filterBySaleAction,
 } from "../../store/reducers/productsReducer";
 
+import {
+  filterCategoryItemBySale,
+  filterCategoryItemsByRange,
+  sortCategoryProductsByDefaultAction,
+  sortCategoryProductsByPriceDescAction,
+  sortCategoryProductsByPriceAscAction,
+  sortCategoryProductsByNameAscAction,
+  sortCategoryProductsByNameDescAction,
+} from "../../store/reducers/categoryReducer";
+
 export default function Filter({ location, showDiscountedItems = true }) {
-  const refFrom = useRef();
-  const refTo = useRef();
   const dispatch = useDispatch();
-  const saleFilterValue = useSelector((state) => state.products.saleFilter);
 
-  const filterBySale = useSelector((state) => state.products.filterBySale);
-
-  useEffect(() => {
-    dispatch(filterBySaleAction(saleFilterValue));
-  }, [dispatch, saleFilterValue]);
-
-  const handleFilterBySale = () => {
-    console.log("Checkbox value:", filterBySale);
-    dispatch(filterBySaleAction(!filterBySale));
+  const handleFilterBySale = (e) => {
+    dispatch(
+      location === "category_item"
+        ? filterCategoryItemBySale(e.target.checked)
+        : filterBySaleAction(e.target.checked)
+    );
   };
 
   const handleSortOption = (e) => {
@@ -34,38 +38,64 @@ export default function Filter({ location, showDiscountedItems = true }) {
 
     switch (e.target.value) {
       case "default":
-        dispatch(sortByDefaultAction());
+        dispatch(
+          location === "category_item"
+            ? sortCategoryProductsByDefaultAction()
+            : sortByDefaultAction()
+        );
         break;
       case "priceDesc":
-        dispatch(sortByPriceDescAction());
+        dispatch(
+          location === "category_item"
+            ? sortCategoryProductsByPriceDescAction()
+            : sortByPriceDescAction()
+        );
         break;
       case "priceAsc":
-        dispatch(sortByPriceAscAction());
+        dispatch(
+          location === "category_item"
+            ? sortCategoryProductsByPriceAscAction()
+            : sortByPriceAscAction()
+        );
         break;
       case "nameAsc":
-        dispatch(sortByNameAscAction());
+        dispatch(
+          location === "category_item"
+            ? sortCategoryProductsByNameAscAction()
+            : sortByNameAscAction()
+        );
         break;
       case "nameDesc":
-        dispatch(sortByNameDescAction());
+        dispatch(
+          location === "category_item"
+            ? sortCategoryProductsByNameDescAction()
+            : sortByNameDescAction()
+        );
         break;
       default:
         break;
     }
   };
 
+  const fromValueRef = useRef("");
+  const toValueRef = useRef("");
+
   const handleRange = () => {
-    const from = Number(refFrom.current.value) || null;
-    const to = Number(refTo.current.value) || null;
-
-    console.log("From:", from);
-    console.log("To:", to);
-
     const range = {
-      from,
-      to,
+      from:
+        fromValueRef.current.value !== ""
+          ? Number(fromValueRef.current.value)
+          : undefined,
+      to:
+        toValueRef.current.value !== ""
+          ? Number(toValueRef.current.value)
+          : undefined,
     };
-
-    dispatch(sortByRangeAction(range));
+    dispatch(
+      location === "category_item"
+        ? filterCategoryItemsByRange(range)
+        : sortByRangeAction(range)
+    );
   };
 
   return (
@@ -74,16 +104,18 @@ export default function Filter({ location, showDiscountedItems = true }) {
         Price
         <input
           className={s.input_toFrom}
-          type="text"
+          type="number"
           placeholder="from"
-          ref={refFrom}
+          name={"from"}
+          ref={fromValueRef}
           onChange={handleRange}
         />
         <input
           className={s.input_toFrom}
-          type="text"
+          type="number"
           placeholder="to"
-          ref={refTo}
+          name={"to"}
+          ref={toValueRef}
           onChange={handleRange}
         />
       </label>
@@ -93,7 +125,6 @@ export default function Filter({ location, showDiscountedItems = true }) {
           <div>
             <input
               className={s.input_checkBox}
-              checked={filterBySale}
               onChange={handleFilterBySale}
               type="checkbox"
             />

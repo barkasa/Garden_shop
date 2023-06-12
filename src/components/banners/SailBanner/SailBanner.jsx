@@ -1,14 +1,17 @@
-//////////
 import React, { useState, useEffect } from "react";
 import s from "./SailBanner.module.css";
-import banerImage from "../../../images/banerImage.png";
+import banerImage from "../../../images/banerImage_1.png";
 import banerImage2 from "../../../images/banerImage_2.png";
 import banerImage3 from "../../../images/banerImage_3.png";
 
 import { Link } from "react-scroll";
 
 import Button from "../../Button/Button";
+
+// Определение изображений для баннеров
 const images = [banerImage, banerImage2, banerImage3];
+
+// Определение данных для каждого баннера
 const banners = [
   {
     image: banerImage,
@@ -31,18 +34,22 @@ const banners = [
 ];
 
 export default function SailBanner() {
+  // Использование состояния для отслеживания текущего индекса баннера
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
 
   useEffect(() => {
+    // Использование useEffect для установки интервала автоматического переключения баннеров
     const interval = setInterval(() => {
       setCurrentBannerIndex((prevIndex) =>
         prevIndex === banners.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000);
 
+    // Очистка интервала при размонтировании компонента
     return () => clearInterval(interval);
   }, []);
 
+  // Получение текущего баннера на основе текущего индекса
   const currentBanner = banners[currentBannerIndex];
 
   return (
@@ -52,6 +59,7 @@ export default function SailBanner() {
     >
       <div className={s.sail_banner}>
         <div>
+          {/* Отображение заголовков и кнопки */}
           <h1
             className={s.sale_heading}
             style={{ color: currentBanner.textColor }}
@@ -65,14 +73,11 @@ export default function SailBanner() {
             New season
           </h2>
           <Link to="sail" smooth={true} duration={500}>
-            <Button
-              className="sale_btn"
-              label="Sale"
-              // style={{ backgroundColor: currentBanner.buttonColor }}
-            />
+            <Button className="sale_btn" label="Sale" />
           </Link>
         </div>
         <div className={s.baner_image}>
+          {/* Отображение изображения текущего баннера */}
           <img
             src={images[currentBannerIndex]}
             alt="banerImage"

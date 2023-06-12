@@ -4,6 +4,7 @@ import { fetchCategoryList } from "../../requests/requests";
 import { Link } from "react-router-dom";
 import CategorieItem from "../CategorieItem/CategorieItem";
 import s from "./CategoriesList.module.css";
+import PageWrapper from "../PageWrapper/PageWrapper";
 
 export default function CategoriesList({ count }) {
   const dispatch = useDispatch();
@@ -14,15 +15,17 @@ export default function CategoriesList({ count }) {
   }, [dispatch]);
 
   return (
-    <div className={s.categories_wrapper}>
-      <div className={s.category_card}>
-        {categories.slice(0, count).map((elem) => (
-          <div key={elem.id}>
-            <Link to={`/categoryItem/${elem.id}`}>{elem.name}</Link>
-            <CategorieItem {...elem} />
-          </div>
-        ))}
+    <PageWrapper title="Categories">
+      <div className={s.categories_wrapper}>
+        <div className={s.category_list}>
+          {categories.slice(0, count).map((elem) => (
+            <div key={elem.id}>
+              <Link to={`/categoryItem/${elem.id}`}>{elem.name}</Link>
+              <CategorieItem {...elem} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }

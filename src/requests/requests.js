@@ -1,4 +1,5 @@
 import { ggetCategoriesAction } from "../store/reducers/categoriesReducer";
+import { getCategoryAction } from "../store/reducers/categoryReducer";
 import { getProductsAction } from "../store/reducers/productsReducer";
 
 const base_url = "http://localhost:3333";
@@ -33,7 +34,7 @@ export const fetchProductsByCategory = (categoryId) => {
   return function (dispatch) {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => dispatch(getProductsAction(data.data)))
+      .then((data) => dispatch(getCategoryAction(data)))
       .catch((error) => console.log(error));
   };
 };

@@ -81,8 +81,11 @@
 
 @media screen and (max-width: 1200px) {
   .contacts_wrapper {
+    padding: 20px 20px;
+    height: auto;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(253, 253, 253);
   }
   .contact_title {
     margin: 0 auto;
@@ -113,5 +116,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+
+  .social_icon {
+    width: 44px;
+    height: 44px;
+    color: #b63b7d;
   }
 }

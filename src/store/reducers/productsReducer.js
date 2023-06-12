@@ -8,7 +8,6 @@ const SORT_BY_PRICE_ASC = "SORT_BY_PRICE_ASC";
 const SORT_BY_NAME_ASC = "SORT_BY_NAME_ASC";
 const SORT_BY_NAME_DESC = "SORT_BY_NAME_DESC";
 const FILTER_PRODUCTS_BY_SALE = "FILTER_PRODUCTS_BY_SALE";
-// const FILTER_PRODUCTS_BY_RANGE = "FILTER_PRODUCTS_BY_RANGE";
 
 export const productsReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -17,6 +16,7 @@ export const productsReducer = (state = defaultState, action) => {
         ...action.payload.map((product) => ({
           ...product,
           rangeVisible: true,
+          showBySale: true,
         })),
       ];
 
@@ -45,14 +45,31 @@ export const productsReducer = (state = defaultState, action) => {
     case FILTER_PRODUCTS_BY_SALE:
       if (action.payload) {
         return state.map((product) => {
-          if (product.rangeVisible === null) {
-            product.rangeVisible = false;
+          if (product.discont_price === null) {
+            product.showBySale = false;
           }
           return product;
         });
       } else {
-        return state.map((product) => ({ ...product, rangeVisible: true }));
+        return state.map((product) => ({ ...product, showBySale: true }));
       }
+
+    case SORT_BY_RANGE:
+      console.log(action.payload);
+      let { from, to } = action.payload;
+      if (isNaN(to)) {
+        to = Infinity;
+      }
+      if (isNaN(from)) {
+        from = -Infinity;
+      }
+      return [...state].map((product) => ({
+        ...product,
+        rangeVisible:
+          (product.discont_price ? product.discont_price : product.price) >=
+            from &&
+          (product.discont_price ? product.discont_price : product.price) <= to,
+      }));
 
     default:
       return state;

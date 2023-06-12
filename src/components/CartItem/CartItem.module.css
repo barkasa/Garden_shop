@@ -12,23 +12,16 @@
   width: 192px;
   height: 192px;
   border-radius: 10px;
-  /* overflow: hidden; */
   object-fit: cover;
 }
 
 .fg {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
-  /* align-items: flex-start; */
 }
 
-.priceAll_wrapper {
-  /* justify-content: space-between; */
-}
 .counter_wrapper {
   flex-grow: 1;
-  /* margin-right: max(100px); */
   max-width: 300px;
   display: flex;
   flex-direction: column;
@@ -75,7 +68,6 @@
 
 .priceBlock_wrapper {
   flex-grow: 1;
-  /* margin-right: 10px; */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -90,7 +82,6 @@
 .discount_price {
   font-weight: 600;
   font-size: 40px;
-  /* margin-left: 76px; */
 }
 
 .price {
@@ -105,3 +96,5 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+/* // */

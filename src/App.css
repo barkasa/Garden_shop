@@ -14,5 +14,6 @@ body {
 .wrapper_app {
   margin: 0 auto;
   max-width: 1440px;
+  padding: 0;
   /* background-color: beige; */
 }

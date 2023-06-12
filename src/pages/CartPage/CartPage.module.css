@@ -1,7 +1,7 @@
 .cart_wrapper {
   margin: 0 auto;
   width: 1345px;
-  /* min-height: 532px; */
+
   padding: 0 0 45px 0;
   background: #ffffff;
   margin-bottom: 95px;
@@ -27,15 +27,13 @@
 .message {
   font-weight: 700;
   font-size: 40px;
-  color: #ff5e36;
+  color: #ff32a1;
   user-select: none;
 }
 .back_wrapper {
   display: flex;
   align-items: center;
   margin-left: 601.5px;
-  /* text-decoration: none; */
-  /* align-items: flex-start; */
 
   color: #000000;
   font-weight: 500;
@@ -60,12 +58,10 @@
   border: 2px solid #000000;
   border-radius: 21px;
   overflow-y: auto;
-  /* position: absolute; */
-  /* right: 0; */
 }
 
 .orderBox_wrapper.error {
-  height: auto; /* При наличии ошибки устанавливаем высоту в авто */
+  height: auto;
 }
 .orderDetail_wrapper {
   display: flex;
@@ -80,18 +76,14 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100%; /* Пример: снизить прозрачность */
-  /* pointer-events: none; */
-  /* Пример: отключить события указателя */
+  height: 100%;
 }
 .orderDetail_title.disabled {
   align-self: center;
-  /* Дополнительные стили для центрирования в состоянии disabled */
 }
 
 .tottal_amount.disabled {
   align-self: center;
-  /* Дополнительные стили для центрирования в состоянии disabled */
 }
 .orderDetail_title {
   font-weight: 600;
@@ -114,20 +106,6 @@
   font-size: 32px;
   margin-right: 18px;
 }
-/* .phone_input {
-  width: 446px;
-  height: 73px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 20px;
-  margin-bottom: 25px;
-  padding: 25px auto 25px 25px;
-
-  font-weight: 500;
-  font-size: 18px;
-
-  color: #929292;
-} */
 
 .phone_input {
   padding-left: 25px;
@@ -143,7 +121,6 @@
   color: #929292;
 }
 .error {
-  /* border-color: #ff5e36; */
   border: 2px solid #ff3d36;
 }
 .error_message {
@@ -151,4 +128,102 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 25px;
+}
+
+@media (max-width: 1370px) {
+  .cartList_wrapper {
+    flex-direction: column;
+  }
+
+  .cart_title {
+    /* Стили для заголовка корзины на мобильных устройствах */
+    /* Например: */
+    font-size: 24px;
+  }
+
+  .back_wrapper {
+    /* Стили для обертки кнопки "Back to the store" на мобильных устройствах */
+    /* Например: */
+    margin-bottom: 20px;
+  }
+
+  .link {
+    /* Стили для ссылки "Back to the store" на мобильных устройствах */
+    /* Например: */
+    color: blue;
+  }
+
+  .back_icon {
+    /* Стили для иконки "Back to the store" на мобильных устройствах */
+    /* Например: */
+    font-size: 20px;
+  }
+
+  .cartList_wrapper {
+    /* Стили для обертки списка товаров на мобильных устройствах */
+    /* Например: */
+    margin-bottom: 20px;
+  }
+
+  .message {
+    /* Стили для сообщения "Cart Is Empty" на мобильных устройствах */
+    /* Например: */
+    font-size: 18px;
+  }
+
+  .smile_icon {
+    /* Стили для иконки "RiEmotionSadLine" на мобильных устройствах */
+    /* Например: */
+    font-size: 30px;
+  }
+
+  .orderBox_wrapper {
+    /* Стили для обертки блока заказа на мобильных устройствах */
+    /* Например: */
+    padding: 10px;
+  }
+
+  .disabled {
+    /* Стили для блокированного блока заказа на мобильных устройствах */
+    /* Например: */
+    opacity: 0.5;
+  }
+
+  .phone_input {
+    /* Стили для поля ввода номера телефона на мобильных устройствах */
+    /* Например: */
+    width: 100%;
+  }
+
+  .invalid {
+    /* Стили для недопустимого поля ввода номера телефона на мобильных устройствах */
+    /* Например: */
+    border: 1px solid red;
+  }
+
+  .error_message {
+    /* Стили для сообщения об ошибке на мобильных устройствах */
+    /* Например: */
+    color: red;
+  }
+
+  .total_wrapper {
+    /* Стили для обертки общей суммы на мобильных устройствах */
+    /* Например: */
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+  }
+
+  .total {
+    /* Стили для общей суммы на мобильных устройствах */
+    /* Например: */
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .discount_info {
+    /* Стили для информации о скидке на мобильных устройствах */
+    /* Например: */
+    font-size: 14px;
+  }
 }

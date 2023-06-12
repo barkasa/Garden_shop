@@ -32,8 +32,6 @@
   color: #6c6c6c;
 }
 
-/* // */
-
 .get_discount_btn {
   width: 473px;
   height: 75.44px;
@@ -79,4 +77,33 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 25px;
+}
+@media (max-width: 900px) {
+  .get_sail_banner {
+    height: auto;
+    text-align: center;
+    flex-direction: column-reverse;
+    padding: 30px 20px;
+  }
+  .dwarf {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+  }
+  .oder_sail {
+    font-size: 60px;
+  }
+  .oder_sail_h4 {
+    font-size: 30px;
+  }
+  .tel_input {
+    width: 273px;
+    height: 55.44px;
+    border-radius: 15.1468px;
+  }
+  .get_discount_btn {
+    width: 273px;
+    height: 55.44px;
+    border-radius: 15.1468px;
+  }
 }

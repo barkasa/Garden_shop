@@ -1,6 +1,46 @@
-.notFoundPage_section img {
-  /* margin: 0 auto; */
-
+/* .notFoundPage_section img {
   width: 1440px;
   height: 625px;
+} */
+/* @media (max-width: 1458px) {
+  .notFoundPage_section img {
+    width: auto;
+    height: 100%;
+    max-width: 625px;
+    max-height: 625px;
+    object-fit: cover;
+    object-position: center;
+  }
+} */
+/* .notFoundPage_section.mobile {
+  width: 625px;
+  height: 625px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.notFoundPage_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundPage_section img {
+  display: flex;
+  width: 1440px;
+  height: 625px;
+}
+
+@media (max-width: 1458px) {
+  .notFoundPage_section img {
+    width: 625px;
+    height: 625px;
+    object-fit: cover;
+  }
+}
+@media (max-width: 650px) {
+  .notFoundPage_section img {
+    width: 350px;
+    height: 350px;
+  }
 }

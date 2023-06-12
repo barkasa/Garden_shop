@@ -1,8 +1,8 @@
-.category_card {
+.category_list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
-.category_card:last-child {
+.category_list:last-child {
   margin-right: 0;
 }
