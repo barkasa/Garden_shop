@@ -1,7 +1,7 @@
 .product_item {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
+
   max-width: 319px;
   margin-bottom: 20px;
 }
@@ -15,9 +15,8 @@
   border-radius: 12px;
   overflow: hidden;
   object-fit: contain;
-  /* margin-bottom: 20px; */
+
   border: 1px solid rgba(0, 0, 0, 0.2);
-  /* background: rgba(0, 0, 0, 0.05); */
 }
 
 .product_image img {
@@ -38,7 +37,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* align-items: flex-start; */
+
   margin-bottom: 10px;
 }
 

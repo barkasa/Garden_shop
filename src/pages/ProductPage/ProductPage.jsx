@@ -1,29 +1,37 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 import s from "./ProductPage.module.css";
 import Button from "../../components/Button/Button";
 import { addToCartAction } from "../../store/reducers/cartReducer";
-import { Helmet } from "react-helmet";
 
 const ProductPage = () => {
-  // Получение параметра productId из URL с помощью хука useParams()
   const { productId } = useParams();
-  // Получение списка продуктов из глобального состояния с помощью хука useSelector()
   const products = useSelector((state) => state.products);
-  // Нахождение продукта по его id
   const product = products.find((p) => p.id === parseInt(productId));
-  // Получение экземпляра dispatch из react-redux
   const dispatch = useDispatch();
-  // Проверка, найден ли продукт
-  if (!product) {
-    return <div>Товар не найден</div>;
-  }
-  // Обработчик добавления продукта в корзину
+  const [isModalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!product) {
+      navigate("/");
+    }
+  }, [product, navigate]);
+
   const handleAddToCart = () => {
     dispatch(addToCartAction(product));
   };
+
+  const handleImageClick = () => {
+    setModalOpen(true);
+  };
+
+  if (!product) {
+    return <div>Товар не найден</div>;
+  }
 
   return (
     <div className={s.product_page}>
@@ -35,11 +43,13 @@ const ProductPage = () => {
       <div className={s.product_info}>
         <div>
           <h1 className={s.title}>{product.title}</h1>
-          <img
-            src={`http://localhost:3333${product.image}`}
-            alt={product.title}
-            className={s.image}
-          />
+          <div onClick={handleImageClick}>
+            <img
+              src={`http://localhost:3333${product.image}`}
+              alt={product.title}
+              className={s.image}
+            />
+          </div>
         </div>
         <div className={s.price_wrapper}>
           {product.discont_price ? (
@@ -70,6 +80,21 @@ const ProductPage = () => {
           <p className={s.description}>{product.description}</p>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className={s.modal}>
+          <div className={s.modalContent}>
+            <span className={s.close} onClick={() => setModalOpen(false)}>
+              &times;
+            </span>
+            <img
+              src={`http://localhost:3333${product.image}`}
+              alt={product.title}
+              className={s.modalImage}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

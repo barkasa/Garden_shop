@@ -1,5 +1,5 @@
 .banner_wrapper {
-  padding: 110px 0 20px 0;
+  padding: 110px 0 20px 47.5px;
   width: auto;
   min-height: 600px;
   background-color: #a1e2eb;
@@ -35,6 +35,9 @@
 }
 
 @media (max-width: 900px) {
+  .banner_wrapper {
+    flex-direction: column;
+  }
   .sail_banner {
     text-align: center;
     flex-direction: column-reverse;

@@ -5,7 +5,7 @@ const FILTER_CATEGORY_BY_RANGE = "FILTER_CATEGORY_BY_RANGE";
 
 const SORT_CATEGORY_BY_DEFAULT = "SORT_CATEGORY_BY_DEFAULT";
 const SORT_CATEGORY_BY_PRICE_DESC = "SORT_CATEGORY_BY_PRICE_DESC";
-// const SORT_CATEGORY_BY_RANGE = "SORT_CATEGORY_BY_RANGE";
+
 const SORT_CATEGORY_BY_PRICE_ASC = "SORT_CATEGORY_BY_PRICE_ASC";
 const SORT_CATEGORY_BY_NAME_ASC = "SORT_CATEGORY_BY_NAME_ASC";
 const SORT_CATEGORY_BY_NAME_DESC = "SORT_CATEGORY_BY_NAME_DESC";
@@ -89,6 +89,7 @@ export const categoryReducer = (state = initialState, action) => {
             (elem.discont_price ? elem.discont_price : elem.price) <= to,
         })),
       };
+
     default:
       return state;
   }

@@ -82,7 +82,8 @@
 
 .order_button {
   padding: 20px 158px 20px 143px;
-  width: 446px;
+  width: 100%;
+  max-width: 446px;
   height: 76px;
   font-weight: 700;
   font-size: 28px;
@@ -95,6 +96,15 @@
   box-shadow: inset 0px 0px 8px 10px #2b812b;
   background: #2b812b;
   border: 2px solid #287728;
+}
+@media (max-width: 500px) {
+  .order_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
 }
 
 /* Стили для Add to card кнопки */

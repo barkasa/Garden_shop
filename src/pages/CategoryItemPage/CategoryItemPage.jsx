@@ -6,14 +6,28 @@ import { fetchProductsByCategory } from "../../requests/requests";
 import s from "./CategoryItemPage.module.css";
 import Filter from "../../components/Filter/Filter";
 import ProductsList from "../../components/ProductsList/ProductsList";
+import notFoundProduct from "../../images/productsNotFoundImg.png"; // Импорт изображения
 
 const CategoryItemPage = () => {
   const { categoryId } = useParams();
   const dispatch = useDispatch();
   const categoryProducts = useSelector((state) => state.category);
 
-  const title = categoryProducts.data ? categoryProducts.category.title : "";
-  const products = categoryProducts.data ? categoryProducts.data : [];
+  const title = categoryProducts?.category?.title || "";
+
+  const products = categoryProducts?.data || [];
+
+  const renderContent = () => {
+    if (products.length === 0) {
+      return (
+        <div className={s.no_products}>
+          <img src={notFoundProduct} alt="productsNotFoundImg" />
+        </div>
+      );
+    }
+
+    return <ProductsList products={products} />;
+  };
 
   useEffect(() => {
     dispatch(fetchProductsByCategory(categoryId));
@@ -26,9 +40,7 @@ const CategoryItemPage = () => {
       </Helmet>
       <h2 className={s.categories_list_title}>{title}</h2>
       <Filter location={"category_item"} />
-      <div className={s.card_container}>
-        <ProductsList products={products} />
-      </div>
+      <div className={s.card_container}>{renderContent()}</div>
     </div>
   );
 };

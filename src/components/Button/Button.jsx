@@ -9,7 +9,6 @@ export default function Button({ label, className, onClick }) {
     [s.button_small]: className === "small_btn",
     [s.sale_button]: className === "sale_btn",
     [s.allCategories_button]: className === "allCategories_btn",
-    // [s.get_discount_button]: className === "get_discount_btn",
     [s.add_to_cart_button]: className === "add_to_cart_btn",
     [s.order_button]: className === "order_btn",
   });

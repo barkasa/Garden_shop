@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./CategoriesListPage.module.css";
-// import CategoryList from "../../components/CategoryList/CategoryList";
+
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
 
 export default function CategoriesListPage() {

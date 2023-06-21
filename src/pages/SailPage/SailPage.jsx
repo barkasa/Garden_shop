@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductList } from "../../requests/requests";
-// import ProductItem from "../../components/ProductItem/ProductItem";
+
 import s from "./SailPage.module.css";
 import Filter from "../../components/Filter/Filter";
 import ProductsList from "../../components/ProductsList/ProductsList";

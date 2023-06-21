@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import s from "./SailBanner.module.css";
 import banerImage from "../../../images/banerImage_1.png";
-import banerImage2 from "../../../images/banerImage_2.png";
+import banerImage2 from "../../../images/banerImage_22.png";
 import banerImage3 from "../../../images/banerImage_3.png";
 
 import { Link } from "react-scroll";
@@ -18,18 +18,21 @@ const banners = [
     backgroundColor: "#a1e2eb",
     textColor: "#ffffff",
     buttonColor: "blue",
+    padding: "110px 0 20px 47.5px",
   },
   {
     image: banerImage2,
     backgroundColor: "#f5a7b8",
     textColor: "#ffffff",
     buttonColor: "red",
+    padding: "110px 47.5px 20px 47.5px",
   },
   {
     image: banerImage3,
     backgroundColor: "#c7d2d8",
     textColor: "#000000",
     buttonColor: "green",
+    padding: "110px 47.5px 20px 47.5px",
   },
 ];
 
@@ -55,7 +58,10 @@ export default function SailBanner() {
   return (
     <div
       className={s.banner_wrapper}
-      style={{ backgroundColor: currentBanner.backgroundColor }}
+      style={{
+        backgroundColor: currentBanner.backgroundColor,
+        padding: currentBanner.padding,
+      }}
     >
       <div className={s.sail_banner}>
         <div>
@@ -76,14 +82,14 @@ export default function SailBanner() {
             <Button className="sale_btn" label="Sale" />
           </Link>
         </div>
-        <div className={s.baner_image}>
-          {/* Отображение изображения текущего баннера */}
-          <img
-            src={images[currentBannerIndex]}
-            alt="banerImage"
-            className={s.baner_image_img}
-          />
-        </div>
+      </div>
+      <div className={s.baner_image}>
+        {/* Отображение изображения текущего баннера */}
+        <img
+          src={images[currentBannerIndex]}
+          alt="banerImage"
+          className={s.baner_image_img}
+        />
       </div>
     </div>
   );

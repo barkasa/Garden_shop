@@ -15,8 +15,6 @@ import { fetchProductList } from "../../requests/requests";
 import { useEffect } from "react";
 import PageWrapper from "../../components/PageWrapper/PageWrapper";
 
-// import PageWrapper from "./PageWrapper";
-
 export default function HomePage() {
   const products = useSelector((store) => store.products);
   const dispatch = useDispatch();

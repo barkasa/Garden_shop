@@ -11,7 +11,6 @@ import ProductsListPage from "./pages/ProductsListPage/ProductsListPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import SailPage from "./pages/SailPage/SailPage";
 import { useEffect } from "react";
-// import CategoriesList from "./components/CategoriesList/CategoriesList";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -42,7 +41,6 @@ function App() {
           element={<ProductsListPage />}
         />
 
-        {/* <Route path="/product" element={<ProductPage />} /> */}
         <Route path="/productsSailList" element={<SailPage />} />
 
         <Route path="/products/:productId" element={<ProductPage />} />
@@ -56,5 +54,3 @@ function App() {
   );
 }
 export default App;
-
-// "homepage": "https://barkasa.github.io/Garden_shop/",

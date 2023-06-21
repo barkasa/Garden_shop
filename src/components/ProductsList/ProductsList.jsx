@@ -4,7 +4,7 @@ import ProductItem from "../ProductItem/ProductItem";
 
 export default function ProductsList({ products }) {
   products = products.filter((elem) => elem.showBySale && elem.rangeVisible);
-  // console.log(products);
+
   return (
     <div className={s.card_container}>
       {products

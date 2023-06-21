@@ -66,7 +66,9 @@ export default function CartPage() {
   return (
     <PageWrapper title="Cart">
       <div className={s.cart_wrapper}>
-        <h2 className={s.cart_title}>Shopping cart</h2>
+        <div>
+          <h2 className={s.cart_title}>Shopping cart</h2>
+        </div>
 
         <div className={s.back_wrapper}>
           <Link to="/productsList" className={s.link}>
