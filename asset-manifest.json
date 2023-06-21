@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/Garden_shop/static/css/main.c9b9f7e0.css",
-    "main.js": "/Garden_shop/static/js/main.1099978e.js",
+    "main.css": "/Garden_shop/static/css/main.8344f082.css",
+    "main.js": "/Garden_shop/static/js/main.a6ed1b49.js",
     "static/media/notFoundPage.png": "/Garden_shop/static/media/notFoundPage.b767db95499b6ac5aa96.png",
     "static/media/banerImage_3.png": "/Garden_shop/static/media/banerImage_3.b89629beb2d9974b023d.png",
     "static/media/banerImage_1.png": "/Garden_shop/static/media/banerImage_1.e80500ac7cc716689b8a.png",
-    "static/media/banerImage_2.png": "/Garden_shop/static/media/banerImage_2.e0427a149cc18b238893.png",
+    "static/media/banerImage_22.png": "/Garden_shop/static/media/banerImage_22.9681210c7ce4187440dc.png",
+    "static/media/productsNotFoundImg.png": "/Garden_shop/static/media/productsNotFoundImg.03a540e7749f20dec693.png",
     "static/media/dwarf.png": "/Garden_shop/static/media/dwarf.44ddfa3ba42c2be627b5.png",
     "index.html": "/Garden_shop/index.html",
-    "main.c9b9f7e0.css.map": "/Garden_shop/static/css/main.c9b9f7e0.css.map",
-    "main.1099978e.js.map": "/Garden_shop/static/js/main.1099978e.js.map"
+    "main.8344f082.css.map": "/Garden_shop/static/css/main.8344f082.css.map",
+    "main.a6ed1b49.js.map": "/Garden_shop/static/js/main.a6ed1b49.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9b9f7e0.css",
-    "static/js/main.1099978e.js"
+    "static/css/main.8344f082.css",
+    "static/js/main.a6ed1b49.js"
   ]
 }
