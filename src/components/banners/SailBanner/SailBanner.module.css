@@ -11,7 +11,7 @@
 }
 .sail_banner {
   margin: 0 auto;
-  width: 1345px;
+  max-width: 1345px;
   display: flex;
 
   align-items: center;
